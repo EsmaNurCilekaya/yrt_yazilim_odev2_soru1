@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Matrisi ekrana yazdýran fonksiyon
+// Matrisi ekrana yazdÃ½ran fonksiyon
 void print_matrix(int **matrix, int n) {
 	int i,j;
     for (i = 0; i < n; i++) {
@@ -12,16 +12,16 @@ void print_matrix(int **matrix, int n) {
     }
 }
 
-// Matrisi saða 90 derece döndüren fonksiyon
+// Matrisi saÃ°a 90 derece dÃ¶ndÃ¼ren fonksiyon
 void rotate_right(int **matrix, int n) {
 	int i,j;
-    // bellekte fazla yer kaplayacaðý için yeni matrisi dinamik olarak oluþturuyorum
+    // bellekte fazla yer kaplayacaÃ°Ã½ iÃ§in yeni matrisi dinamik olarak oluÃ¾turuyorum
     int **new_matrix = (int **)malloc(n * sizeof(int *));
     for (i = 0; i < n; i++) {
         new_matrix[i] = (int *)malloc(n * sizeof(int));
     }
 
-    // Matrisin elemanlarýný yerini deðiþtirerek yeni matrise aktarýyorum
+    // Matrisin elemanlarÃ½nÃ½ yerini deÃ°iÃ¾tirerek yeni matrise aktarÃ½yorum
     for (i = 0; i < n; i++) {
         for (j = 0; j < n; j++) {
             new_matrix[j][n - i - 1] = matrix[i][j];
@@ -37,23 +37,23 @@ void rotate_right(int **matrix, int n) {
     printf("Matrisin saga 90 derece dondurulmus hali:\n");
     print_matrix(new_matrix, n);
 
-    // dinamik bellekte oluþturduðum matrisi iþi bitince kaldýrýyorum
+    // dinamik bellekte oluÃ¾turduÃ°um matrisi iÃ¾i bitince kaldÃ½rÃ½yorum
     for (i = 0; i < n; i++) {
         free(new_matrix[i]);
     }
     free(new_matrix);
 }
 
-// Matrisi sola 90 derece döndüren fonksiyon
+// Matrisi sola 90 derece dÃ¶ndÃ¼ren fonksiyon
 void rotate_left(int **matrix, int n) {
 	int i,j;
-    // bellekte fazla yer kaplayacaðý için yeni matrisi dinamik olarak oluþturuyorum
+    // bellekte fazla yer kaplayacaÃ°Ã½ iÃ§in yeni matrisi dinamik olarak oluÃ¾turuyorum
     int **new_matrix = (int **)malloc(n * sizeof(int *));
     for (i = 0; i < n; i++) {
         new_matrix[i] = (int *)malloc(n * sizeof(int));
     }
 
-    // Matrisin elemanlarýný yerini deðiþtirerek yeni matrise aktarýyorum
+    // Matrisin elemanlarÃ½nÃ½ yerini deÃ°iÃ¾tirerek yeni matrise aktarÃ½yorum
     for (i = 0; i < n; i++) {
         for (j = 0; j < n; j++) {
             new_matrix[n - j - 1][i] = matrix[i][j];
@@ -69,7 +69,7 @@ void rotate_left(int **matrix, int n) {
     printf("Matrisin sola 90 derece dondurulmus hali:\n");
     print_matrix(new_matrix, n);
 
-    // dinamik bellekte oluþturduðum matrisi iþi bitince kaldýrýyorum
+    // dinamik bellekte oluÃ¾turduÃ°um matrisi iÃ¾i bitince kaldÃ½rÃ½yorum
     for (i = 0; i < n; i++) {
         free(new_matrix[i]);
     }
@@ -82,7 +82,7 @@ int main() {
     printf("Matrisin boyutunu giriniz: ");
     scanf("%d", &n);
 
-    // bellekte fazla yer kaplayacaðý için yeni matrisi dinamik olarak oluþturuyorum
+    // bellekte fazla yer kaplayacaÃ°Ã½ iÃ§in yeni matrisi dinamik olarak oluÃ¾turuyorum
     int **matrix = (int **)malloc(n * sizeof(int *));
     for (i = 0; i < n; i++) {
         matrix[i] = (int *)malloc(n * sizeof(int));
@@ -97,7 +97,7 @@ int main() {
 	
     printf("orijinal matris:\n");
     print_matrix(matrix, n);
-	do{
+	do{//do while ile istenen kadar dÃ¶ndÃ¼rmeyi saÄŸlÄ±yorum
 		printf("lutfen saga dondurmek icin 1, sola dondurmek icin 2 giriniz. cikmak istiyorsaniz 3 giriniz:");
 		scanf("%d",&secim);
 		switch(secim){
@@ -120,7 +120,7 @@ int main() {
 	}while(exit==1);
 	
 
-    // dinamik bellekte oluþturduðum ana matrisi iþi bitince kaldýrýyorum
+    // dinamik bellekte oluÃ¾turduÃ°um ana matrisi iÃ¾i bitince kaldÃ½rÃ½yorum
     for (i = 0; i < n; i++) {
         free(matrix[i]);
     }
